@@ -166,7 +166,7 @@ body {
     border-radius: 25px; /* 圓角 */
     font-size: 15px;
     font-weight: 600;
-    background-color: #4CAF50; /* 綠色背景 */
+    background-color: #9370db; /* 綠色背景 */
     
     /* 3D 效果 */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2), 
@@ -178,7 +178,7 @@ body {
 
 /* 記帳按鈕被點擊時的 3D 按壓效果 */
 .btn-accounting:active {
-    background-color: #45a049; /* 按下時顏色略深 */
+    background-color: #8a6acd; /* 按下時顏色略深 */
     box-shadow: 0 0 2px rgba(0,0,0,0.2), 
                 inset 0 1px 3px rgba(0,0,0,0.2); 
     transform: translateY(2px);
