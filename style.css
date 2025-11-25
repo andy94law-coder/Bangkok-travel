@@ -1,0 +1,59 @@
+/* 基礎重設 */
+body {
+    font-family: 'Noto Sans TC', sans-serif; /* 清晰字體 */
+    background-color: #f7f7f7; /* 輕微的米白或淺灰 */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* 手機優先佈局 */
+.itinerary, .tools {
+    padding: 10px;
+    max-width: 600px; /* 限制寬度，讓手機閱讀更舒適 */
+    margin: 0 auto;
+}
+
+/* 行程卡片設計 */
+.day-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 輕微陰影，增加質感 */
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 5px solid #a8dadc; /* 淺苔綠邊框，極簡點綴 */
+}
+
+/* 不同卡片分類設計 */
+.activity-card {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background-color: #fafafa; /* 子卡片背景 */
+}
+.activity-card.restaurant { background-color: #fff0f0; } /* 淡鮭魚粉 */
+.activity-card.attraction { background-color: #f0fff0; } /* 淡綠色 */
+
+/* 導航按鈕 */
+.nav-button {
+    display: block;
+    text-align: center;
+    background-color: #e63946; /* 醒目的紅色 */
+    color: white;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 亮點標籤 (必吃、必買) */
+.highlight-tag {
+    font-weight: bold;
+    color: #e63946; /* 紅色標籤 */
+    background-color: #ffe8e8;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+/* ...其他樣式... */
