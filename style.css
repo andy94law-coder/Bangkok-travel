@@ -59,34 +59,53 @@ body {
 
 /* 固定 Tab Bar 於頂部 */
 .day-tabs {
-    position: sticky; /* 讓它固定在滾動條上方 */
-    top: 0; /* 鎖定在頁面頂部 */
+    position: sticky;
+    top: 0;
     display: flex;
-    overflow-x: auto; /* 允許水平滾動 */
+    overflow-x: auto;
     white-space: nowrap;
     padding: 10px 10px;
-    background-color: #fff; /* 白色背景 */
+    background-color: #f0f0f0; /* 略深的背景色，與按鈕區分 */
     border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 輕微陰影 */
-    z-index: 100; /* 確保它在內容上方 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 100;
 }
 
-/* Tab 按鈕樣式 */
+/* 立體按鈕樣式 */
 .tab-button {
+    display: inline-block; /* 確保陰影和變形效果正常 */
     text-decoration: none;
     color: #555;
-    padding: 5px 15px;
+    padding: 8px 18px; /* 增加內邊距 */
     margin: 0 5px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s ease;
+    border-radius: 25px; /* 更圓潤的按鈕 */
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #e0e0e0; /* 基礎按鈕背景色 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), /* 底部較深陰影，模擬抬起 */
+                0 1px 2px rgba(0,0,0,0.15); /* 上方較淺陰影，模擬表面 */
+    transition: all 0.15s ease-out; /* 更快的過渡動畫 */
+    user-select: none; /* 防止文字被選中 */
+    cursor: pointer; /* 顯示可點擊游標 */
+    position: relative; /* 為了按壓效果做準備 */
+    top: 0; /* 初始位置 */
 }
 
-/* 點擊時的活躍狀態 */
+/* 按鈕活躍狀態 (被選中時) */
 .tab-button.active {
-    background-color: #007aff; /* 藍色背景 (App 常用色) */
+    background-color: #007aff; /* 藍色背景 */
     color: white;
-    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1), /* 活躍時陰影變小，顯得更平 */
+                0 1px 2px rgba(0,0,0,0.1);
+    transform: translateY(1px); /* 輕微下移，模擬被按壓一點點 */
 }
+
+/* 按鈕被真正點擊 (mousedown/touchstart) 時的 3D 按壓效果 */
+.tab-button:active {
+    background-color: #0056b3; /* 按下時顏色略深 */
+    box-shadow: 0 0 2px rgba(0,0,0,0.2), /* 陰影幾乎消失，完全按平 */
+                inset 0 1px 3px rgba(0,0,0,0.2); /* 內陰影模擬凹陷 */
+    transform: translateY(2px); /* 下移更多，模擬完全按平 */
+}
+
 
