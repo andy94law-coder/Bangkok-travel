@@ -150,7 +150,7 @@ body {
 /* 記帳按鈕容器樣式 */
 .accounting-button-container {
     padding: 10px 15px;
-    background: #FDEBEB;
+    background-colour: #FDEBEB;
     border-bottom: 1px solid #eee;
     text-align: right; /* 讓按鈕靠右顯示 */
 }
