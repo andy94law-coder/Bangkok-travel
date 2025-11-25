@@ -57,37 +57,37 @@ body {
     font-size: 0.9em;
 }
 
-/* 固定 Tab Bar 於頂部 */
+/* 固定 Tab Bar 於頂部 (Day 1-7) */
 .day-tabs {
     position: sticky;
     top: 0;
-    padding: 10px 0; /* 移除水平 padding，讓按鈕佔滿寬度 */
+    padding: 10px 10px; /* 稍微增加左右 padding */
     background-color: #f0f0f0;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 100;
     
-    /* ⭐️ 核心修正：使用 Grid 實現 7 個等寬欄位 ⭐️ */
+    /* 核心修正：使用 Grid 實現 7 個等寬欄位 */
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 創建 7 個等寬的欄位 */
-    
-    /* 移除橫向滾動設定 */
+    grid-template-columns: repeat(7, 1fr); 
+    column-gap: 5px; /* ⭐️ 新增：欄位間距 ⭐️ */
 }
 
 
-/* 立體按鈕樣式 */
+
+/* 立體按鈕樣式 (Day 1-7) */
 .tab-button {
     /* 確保內容居中並佔滿 Grid 給予的空間 */
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    justify-content: center;
+    align-items: center;
     
     text-decoration: none;
     color: #555;
-    padding: 8px 0; /* 移除水平 padding，讓 Grid 處理寬度 */
-    margin: 0; /* 移除按鈕間距 */
-    border-radius: 0; /* 設置為 0 可以讓邊緣更銳利，或保留 25px 保持圓角 */
-    font-size: 14px; /* 7個按鈕可能會很擠，字體稍微調小 */
+    padding: 8px 0;
+    margin: 0;
+    border-radius: 10px; /* ⭐️ 修正：圓角弧度 ⭐️ */
+    font-size: 14px;
     font-weight: 600;
     background-color: #e0e0e0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2), 
@@ -98,6 +98,8 @@ body {
     position: relative;
     top: 0;
 }
+/* ... :active 和 .active 樣式保持不變 ... */
+
 
 /* 按鈕活躍狀態 (被選中時) */
 .tab-button.active {
