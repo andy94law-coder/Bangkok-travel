@@ -191,6 +191,63 @@
 
     </section>
 
+    <script>
+        // 這是讓 PWA 可以離線運作的程式碼，如果您不確定是否有，請保留這段。
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // 假設您已經修正了路徑問題
+                navigator.serviceWorker.register('sw.js').then(function(registration) {
+                    console.log('Service Worker 註冊成功');
+                }, function(err) {
+                    console.log('Service Worker 註冊失敗:', err);
+                });
+            });
+        }
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const dayCards = document.querySelectorAll('.day-card');
+
+            // 函數：處理點擊事件
+            function showDay(dayNumber) {
+                // 隱藏所有行程卡片
+                dayCards.forEach(card => {
+                    card.style.display = 'none';
+                });
+
+                // 顯示被點擊的當天行程
+                const targetId = `day-${dayNumber}`;
+                const targetCard = document.getElementById(targetId);
+                if (targetCard) {
+                    targetCard.style.display = 'block';
+                }
+
+                // 更新按鈕的活躍狀態
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                    if (button.dataset.day === dayNumber.toString()) {
+                        button.classList.add('active');
+                    }
+                });
+            }
+
+            // 綁定點擊事件到每個按鈕
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    const day = this.dataset.day;
+                    showDay(day);
+                });
+            });
+
+            // 頁面載入時，顯示 Day 1 
+            showDay(1); // 確保一開始顯示 Day 1
+        });
+    </script>
+    
+
     </body>
 
 </html>
