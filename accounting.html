@@ -49,7 +49,7 @@
 
     <div class="container">
         
-        <h2>新增一筆開銷</h2>
+                <h2>新增一筆開銷</h2>
         <div class="input-group">
             <label for="expense-description">項目說明</label>
             <input type="text" id="expense-description" placeholder="例如: Day2 包車費" required>
@@ -61,11 +61,25 @@
         <div class="input-group">
             <label for="expense-paid-by">付款人</label>
             <select id="expense-paid-by">
-                <option value="A">A (您的名字)</option>
-                <option value="B">B (旅伴名字)</option>
+                <option value="A">Andy</option>
+                <option value="B">Coco</option>
+                <option value="C">Pei</option>
+                <option value="D">Jie</option>
+                <option value="E">Tina</option>
             </select>
         </div>
+
+        <div class="input-group">
+            <label>參與者 (誰需要分攤這筆費用？)</label>
+            <div id="participants-checkboxes">
+                <input type="checkbox" id="check-A" value="A" checked> <label for="check-A" style="display:inline;">A</label><br>
+                <input type="checkbox" id="check-B" value="B" checked> <label for="check-B" style="display:inline;">B</label><br>
+            </div>
+            <small style="color: #666;">預設為所有人，若有人未參與請取消勾選。</small>
+        </div>
+        
         <button class="btn-primary" onclick="addExpense()">新增開銷</button>
+
 
         <h2 style="margin-top: 50px;">餘額與分攤總結</h2>
         <div id="balance-summary">
