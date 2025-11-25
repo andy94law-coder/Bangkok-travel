@@ -3,14 +3,14 @@
   "short_name": "曼谷PWA",
   "description": "您的曼谷七天六夜行程與工具箱",
   // ⭐️ 關鍵修改點：將起始路徑指向專案資料夾
-  "start_url": "Bangkok-travel/index.html", 
+  "start_url": "./index.html", 
   "display": "standalone",
   "background_color": "#f7f7f7",
   "theme_color": "#ffffff",
   "icons": [
     // 也要確保圖標路徑正確
     {
-      "src": "/bangkok-travel/assets/icon-512x512.png",
+      "src": "./assets/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
