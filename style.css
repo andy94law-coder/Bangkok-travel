@@ -61,7 +61,7 @@ body {
 .day-tabs {
     position: sticky;
     top: 0;
-    padding: 10px 10px; /* 稍微增加左右 padding */
+    padding: 10px 5px; /* ⭐️ 調整：只給左右一點點 padding ⭐️ */
     background-color: #f0f0f0;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -70,8 +70,9 @@ body {
     /* 核心修正：使用 Grid 實現 7 個等寬欄位 */
     display: grid;
     grid-template-columns: repeat(7, 1fr); 
-    column-gap: 5px; /* ⭐️ 新增：欄位間距 ⭐️ */
+    /* column-gap: 5px; <- 刪除這一行 */
 }
+
 
 
 
@@ -82,11 +83,14 @@ body {
     justify-content: center;
     align-items: center;
     
+    /* ⭐️ 核心修正：新增左右 Margin 創造獨立空間 ⭐️ */
+    margin: 0 3px; 
+    
     text-decoration: none;
     color: #555;
     padding: 8px 0;
-    margin: 0;
-    border-radius: 10px; /* ⭐️ 修正：圓角弧度 ⭐️ */
+    /* margin: 0; <- 刪除原本的 margin: 0; */
+    border-radius: 10px; /* 圓角弧度 */
     font-size: 14px;
     font-weight: 600;
     background-color: #e0e0e0;
@@ -99,6 +103,7 @@ body {
     top: 0;
 }
 /* ... :active 和 .active 樣式保持不變 ... */
+
 
 
 /* 按鈕活躍狀態 (被選中時) */
