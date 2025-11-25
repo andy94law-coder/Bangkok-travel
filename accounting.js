@@ -1,6 +1,6 @@
 // 初始設定
 let expenses = JSON.parse(localStorage.getItem('tripExpenses')) || [];
-const participants = ['A', 'B']; // 參與者名單，請手動修改為實際人名
+const participants = ['Andy', 'Coco', 'Pei', 'Jie', 'Tina']; // 參與者名單，請手動修改為實際人名
 
 // 儲存開銷
 function saveExpenses() {
