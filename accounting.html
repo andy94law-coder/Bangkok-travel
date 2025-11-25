@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>費用分攤與記帳</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <style>
+        /* 記帳頁面專屬樣式，確保頁面元素清晰 */
+        body { background-color: #f7f7f7; }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 { border-bottom: 2px solid #ddd; padding-bottom: 5px; margin-top: 30px; }
+        
+        /* 記帳輸入區塊 */
+        .input-group { margin-bottom: 15px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .input-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .input-group input, .input-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        
+        /* 按鈕樣式 */
+        .btn-primary { 
+            display: block; width: 100%; padding: 12px; margin-top: 15px;
+            background-color: #4CAF50; color: white; border: none; border-radius: 4px; 
+            font-size: 16px; cursor: pointer; transition: background-color 0.2s;
+        }
+        .btn-primary:active { background-color: #45a049; }
+
+        /* 結果展示區塊 */
+        #balance-summary { margin-top: 30px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .balance-item { padding: 8px 0; border-bottom: 1px dashed #eee; display: flex; justify-content: space-between; }
+        .expense-list { margin-top: 20px; }
+        .expense-list ul { list-style: none; padding: 0; }
+        .expense-list li { background: white; padding: 10px; margin-bottom: 5px; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>💵 費用分攤中心</h1>
+        <p><a href="index.html" style="color: #007aff; text-decoration: none;">&larr; 返回行程</a></p>
+    </header>
+
+    <div class="container">
+        
+        <h2>新增一筆開銷</h2>
+        <div class="input-group">
+            <label for="expense-description">項目說明</label>
+            <input type="text" id="expense-description" placeholder="例如: Day2 包車費" required>
+        </div>
+        <div class="input-group">
+            <label for="expense-amount">金額 (THB)</label>
+            <input type="number" id="expense-amount" placeholder="例如: 2500" required>
+        </div>
+        <div class="input-group">
+            <label for="expense-paid-by">付款人</label>
+            <select id="expense-paid-by">
+                <option value="A">A (您的名字)</option>
+                <option value="B">B (旅伴名字)</option>
+            </select>
+        </div>
+        <button class="btn-primary" onclick="addExpense()">新增開銷</button>
+
+        <h2 style="margin-top: 50px;">餘額與分攤總結</h2>
+        <div id="balance-summary">
+            <p>目前總支出: <strong id="total-spent">0 THB</strong></p>
+            <div id="individual-balance">
+                </div>
+            <p style="margin-top: 15px;">**結論：** <strong id="summary-conclusion">尚無資料</strong></p>
+        </div>
+
+        <div class="expense-list">
+            <h2>所有開銷記錄</h2>
+            <ul id="expense-list-container">
+                </ul>
+        </div>
+    </div>
+
+    <script src="accounting.js"></script>
+</body>
+</html>
