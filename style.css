@@ -1,7 +1,7 @@
 /* 基礎重設 */
 body {
     font-family: 'Noto Sans TC', sans-serif; /* 清晰字體 */
-    background-color: #f7f7f7; /* 輕微的米白或淺灰 */
+    background-color: #FDEBEB; /* 輕微的米白或淺灰 */
     margin: 0;
     padding: 0;
     color: #333;
@@ -57,52 +57,76 @@ body {
     font-size: 0.9em;
 }
 
-/* 固定 Tab Bar 於頂部 (Day 1-7) */
+/* =================================== */
+/* 1. Day 1-7 Tab Bar 容器 (.day-tabs) */
+/* =================================== */
 .day-tabs {
     position: sticky;
     top: 0;
-    padding: 10px 5px; /* ⭐️ 調整：只給左右一點點 padding ⭐️ */
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
+    /* 讓它與頁面背景融合 */
+    padding: 10px 5px; 
+    background-color: #FDEBEB; /* 淡粉色背景 */
+    border-bottom: none; /* 移除邊框 */
+    box-shadow: none; /* 移除陰影 */
     z-index: 100;
     
-    /* 核心修正：使用 Grid 實現 7 個等寬欄位 */
+    /* 佈局：7 個等寬欄位 */
     display: grid;
     grid-template-columns: repeat(7, 1fr); 
-    /* column-gap: 5px; <- 刪除這一行 */
 }
 
-
-
-
-/* 立體按鈕樣式 (Day 1-7) */
+/* =================================== */
+/* 2. Day 1-7 單個按鈕 (.tab-button) */
+/* =================================== */
 .tab-button {
-    /* 確保內容居中並佔滿 Grid 給予的空間 */
+    /* 佈局與間距 */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 3px; /* ⭐️ 間隔：左右各 3px 的間距 ⭐️ */
     
-    /* ⭐️ 核心修正：新增左右 Margin 創造獨立空間 ⭐️ */
-    margin: 0 3px; 
-    
+    /* 視覺效果 */
     text-decoration: none;
     color: #555;
     padding: 8px 0;
-    /* margin: 0; <- 刪除原本的 margin: 0; */
-    border-radius: 10px; /* 圓角弧度 */
     font-size: 14px;
     font-weight: 600;
-    background-color: #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 
-                0 1px 2px rgba(0,0,0,0.15); 
+    
+    /* 圓角與主題色 */
+    border-radius: 10px; /* ⭐️ 圓弧狀邊角 ⭐️ */
+    background-color: #FAE0E0; /* 略深一點的淡粉色作為基礎按鈕色 */
+
+    /* 3D 凸起效果 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), /* 底部較深陰影，模擬抬起 */
+                0 1px 2px rgba(0,0,0,0.15); /* 上方較淺陰影 */
     transition: all 0.15s ease-out;
     user-select: none;
     cursor: pointer;
     position: relative;
     top: 0;
 }
-/* ... :active 和 .active 樣式保持不變 ... */
+
+/* 按鈕活躍狀態 (被選中時) */
+.tab-button.active {
+    background-color: #E36464; /* ⭐️ 強調色：更深的粉紅色 ⭐️ */
+    color: white;
+    
+    /* 輕微按壓效果 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1),
+                0 1px 2px rgba(0,0,0,0.1);
+    transform: translateY(1px);
+}
+
+/* 按鈕被真正點擊 (mousedown/touchstart) 時的 3D 按壓效果 */
+.tab-button:active {
+    background-color: #C74E4E; /* 按下時顏色略深 */
+    box-shadow: 0 0 2px rgba(0,0,0,0.2),
+                inset 0 1px 3px rgba(0,0,0,0.2); /* 內陰影模擬凹陷 */
+    transform: translateY(2px); /* 完全按平 */
+}
+
+
 
 
 
