@@ -252,7 +252,53 @@
             showDay(1); // 確保一開始顯示 Day 1
         });
     </script>
-    
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const dayCards = document.querySelectorAll('.day-card');
+
+        // 函數：處理點擊事件
+        function showDay(dayNumber) {
+            // 隱藏所有行程卡片
+            dayCards.forEach(card => {
+                card.style.display = 'none';
+            });
+
+            // 顯示被點擊的當天行程
+            const targetId = `day-${dayNumber}`;
+            const targetCard = document.getElementById(targetId);
+            if (targetCard) {
+                targetCard.style.display = 'block';
+            }
+
+            // 更新按鈕的活躍狀態
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.dataset.day === dayNumber.toString()) {
+                    button.classList.add('active');
+                }
+            });
+        }
+
+        // 綁定點擊事件到每個按鈕
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // 阻止瀏覽器默認的錨點跳轉
+                const day = this.dataset.day;
+                showDay(day);
+            });
+        });
+
+        // 處理 URL 錨點，確保從其他頁面連結過來也能正確顯示
+        const initialHash = window.location.hash.replace('#day-', '');
+        const initialDay = initialHash && !isNaN(parseInt(initialHash)) ? parseInt(initialHash) : 1;
+        
+        // 頁面載入時，顯示 Day 1 或 URL 指定的那一天
+        showDay(initialDay);
+    });
+</script>
+
 
     </body>
 
