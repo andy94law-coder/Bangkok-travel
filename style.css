@@ -199,7 +199,7 @@ body {
 
 .itinerary {
     position: relative; /* 設置相對定位，以便後續的絕對定位 */
-    padding-left: 30px; /* 為垂直線留出空間 */
+    padding-left: 10px 15px 20px 45px; /* 為垂直線留出空間 */
 }
 
 
@@ -208,7 +208,7 @@ body {
 .activity-card {
     position: relative;
     z-index: 2; /* 確保卡片位於線條上方 */
-    margin-left: 20px; /* 留出空間給左側圓點 */
+    margin-left: 0px; /* 留出空間給左側圓點 */
     margin-bottom: 25px; /* 增加卡片底部間距 */
     padding: 15px;
     background: white;
@@ -220,10 +220,10 @@ body {
 .activity-card::before {
     content: '';
     position: absolute;
-    top: 20px;
-    left: -20px; /* 將圓點定位到垂直線上 */
-    width: 12px;
-    height: 12px;
+    top: 25px;
+    left: -28px; /* 將圓點定位到垂直線上 */
+    width: 14px;
+    height: 14px;
     background-color: #E36464; /* 使用主題色 */
     border-radius: 50%;
     border: 3px solid #FDEBEB; /* 淡粉色邊框，與背景融合 */
@@ -233,11 +233,12 @@ body {
 /* 交通時間與虛線區塊 (Activity-Separator) */
 .activity-separator {
     position: relative;
-    margin-left: 20px; 
-    height: 30px;
+    margin-left: 0px; 
+    height: 40px;
     display: flex;
     align-items: center;
-    
+    justify-content: flex-start;
+    padding-left: 20px;
 }
 
 /* 繪製虛線 */
@@ -245,7 +246,7 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: -16px; /* 與圓點對齊 */
+    left: -19px; /* 與圓點對齊 */
     bottom: 0;
     width: 2px;
     /* ⭐️ 虛線效果 ⭐️ */
