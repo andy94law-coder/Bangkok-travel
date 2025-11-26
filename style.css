@@ -1,10 +1,20 @@
 /* 基礎重設 */
 body {
-    font-family: 'Noto Sans TC', sans-serif; /* 清晰字體 */
-    background-color: #FDEBEB; /* 輕微的米白或淺灰 */
-    margin: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;           /* 確保移除瀏覽器預設外邊距 */
+    padding: 0;          /* 確保移除瀏覽器預設內邊距 */
+    background-color: #FDEBEB;
     color: #333;
+    overflow-x: hidden;  /* 防止水平滾動條，尤其是小螢幕 */
 }
+
+/* ⭐️ 新增：確保內容區塊置中且有最大寬度 ⭐️ */
+.main-content-wrapper {
+    max-width: 600px; /* 您可以根據需求調整這個最大寬度 */
+    margin: 0 auto;   /* 置中內容 */
+    background-color: #FDEBEB; /* 確保背景色一致 */
+}
+
 
 /* 手機優先佈局 */
 .itinerary, .tools {
