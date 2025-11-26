@@ -184,6 +184,103 @@ body {
     transform: translateY(2px);
 }
 
+/* =================================== */
+/* 3. 行程卡片及交通線樣式 */
+/* =================================== */
+
+.itinerary {
+    position: relative; /* 設置相對定位，以便後續的絕對定位 */
+    padding-left: 15px; /* 為垂直線留出空間 */
+}
+
+/* 繪製垂直主線 (從上到下貫穿行程) */
+.itinerary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25px; /* 調整此數值以控制線條的左右位置 */
+    bottom: 0;
+    width: 2px;
+    background-color: #E36464; /* 使用主題色作為線條顏色 */
+    z-index: 1;
+}
+
+/* 調整單個活動卡片的定位 */
+.activity-card {
+    position: relative;
+    z-index: 2; /* 確保卡片位於線條上方 */
+    margin-left: 20px; /* 留出空間給左側圓點 */
+    margin-bottom: 25px; /* 增加卡片底部間距 */
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* 繪製活動卡片前的圓點 (時間軸的點) */
+.activity-card::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -15px; /* 將圓點定位到垂直線上 */
+    width: 12px;
+    height: 12px;
+    background-color: #E36464; /* 使用主題色 */
+    border-radius: 50%;
+    border: 3px solid #FDEBEB; /* 淡粉色邊框，與背景融合 */
+    z-index: 3;
+}
+
+/* 交通時間與虛線區塊 (Activity-Separator) */
+.activity-separator {
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 20px; 
+}
+
+/* 繪製虛線 */
+.activity-separator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -11px; /* 與圓點對齊 */
+    bottom: 0;
+    width: 2px;
+    /* ⭐️ 虛線效果 ⭐️ */
+    background-image: repeating-linear-gradient(to bottom, #E36464, #E36464 4px, transparent 4px, transparent 8px);
+    z-index: 1;
+}
+
+/* 交通時間文字樣式 */
+.transport-time {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    margin-left: 20px;
+    padding: 5px 10px;
+    background-color: #FFF0F0; /* 輕微背景色區分 */
+    border-radius: 5px;
+    width: fit-content;
+}
+
+/* 導航連結樣式 */
+.navigation-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #9370DB; /* 使用紫色主題色 */
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid #9370DB;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.navigation-link:hover {
+    background-color: #9370DB;
+    color: white;
+}
 
 
 
