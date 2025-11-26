@@ -3,7 +3,6 @@ body {
     font-family: 'Noto Sans TC', sans-serif; /* 清晰字體 */
     background-color: #FDEBEB; /* 輕微的米白或淺灰 */
     margin: 0;
-    padding: 0;
     color: #333;
 }
 
@@ -190,20 +189,10 @@ body {
 
 .itinerary {
     position: relative; /* 設置相對定位，以便後續的絕對定位 */
-    padding-left: 15px; /* 為垂直線留出空間 */
+    padding-left: 30px; /* 為垂直線留出空間 */
 }
 
-/* 繪製垂直主線 (從上到下貫穿行程) */
-.itinerary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 25px; /* 調整此數值以控制線條的左右位置 */
-    bottom: 0;
-    width: 2px;
-    background-color: #E36464; /* 使用主題色作為線條顏色 */
-    z-index: 1;
-}
+
 
 /* 調整單個活動卡片的定位 */
 .activity-card {
@@ -222,7 +211,7 @@ body {
     content: '';
     position: absolute;
     top: 20px;
-    left: -15px; /* 將圓點定位到垂直線上 */
+    left: -20px; /* 將圓點定位到垂直線上 */
     width: 12px;
     height: 12px;
     background-color: #E36464; /* 使用主題色 */
@@ -234,9 +223,11 @@ body {
 /* 交通時間與虛線區塊 (Activity-Separator) */
 .activity-separator {
     position: relative;
-    padding-top: 5px;
-    padding-bottom: 5px;
     margin-left: 20px; 
+    height: 30px;
+    display: flex;
+    align-items: center;
+    
 }
 
 /* 繪製虛線 */
@@ -244,7 +235,7 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: -11px; /* 與圓點對齊 */
+    left: -16px; /* 與圓點對齊 */
     bottom: 0;
     width: 2px;
     /* ⭐️ 虛線效果 ⭐️ */
@@ -254,14 +245,15 @@ body {
 
 /* 交通時間文字樣式 */
 .transport-time {
-    display: block;
+    display: inline-block;
     font-size: 13px;
     color: #888;
     margin-left: 20px;
-    padding: 5px 10px;
+    padding: 3px 8px;
     background-color: #FFF0F0; /* 輕微背景色區分 */
     border-radius: 5px;
     width: fit-content;
+    z-index: 2;
 }
 
 /* 導航連結樣式 - 改為右上角 ICON 按鈕 */
